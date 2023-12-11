@@ -7,14 +7,11 @@ gals = sum(galsinrows) # = sum(galsincols)
 
 def cnt(expansion):
     res = 0
-    g = 0
-    for i in galsincols:
-        g += i
-        res += g*(gals-g)*(expansion if i==0 else 1)
-    g = 0
-    for i in galsinrows:
-        g += i
-        res += g*(gals-g)*(expansion if i==0 else 1)
+    for galsc in [galsincols,galsinrows]:
+        g = 0
+        for i in galsc:
+            g += i
+            res += g*(gals-g)*(expansion if i==0 else 1)
     return(res)
 
 print(cnt(2))
